@@ -152,7 +152,8 @@ const Reservation = ({ userFrom, nowPlaying }) => {
     setPoster(event.poster);
     setID(event.id);
     setVisible(true);
-    setKey(event.key); //영화관 1관 2관 3관 .... 정하기 위해 씀
+    setKey(event.key);
+    //영화관 1관 2관 3관 .... 정하기 위해 씀
   };
 
   useEffect(() => {
@@ -255,7 +256,7 @@ const Reservation = ({ userFrom, nowPlaying }) => {
             {Continents2.map((item, index) => (
               <Button2
                 key={index}
-                onClick={(props) => {
+                onClick={() => {
                   setTheater(key);
                   onTime(item.value);
                 }}

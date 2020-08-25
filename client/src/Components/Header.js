@@ -6,6 +6,7 @@ import { Badge } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import { LOCAL_SERVER } from "./Config";
+
 const Header = styled.header`
   position: fixed;
   top: 0;
@@ -45,7 +46,6 @@ const List2 = styled.ul`
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-
   font-weight: 400;
   height: 44px;
 `
@@ -122,7 +122,6 @@ export default withRouter(
     const logoutHandler = () => {
       Axios.get("/api/users/logout").then(response => {
         if (response.data.success) {
-          console.log(response.data)
           props.history.push("/sign-in")
         } else {
           alert("로그아웃 하는데 실패 했습니다.")
@@ -156,6 +155,14 @@ export default withRouter(
             <Item current={pathname === "/product"}>
               <SLink to="/product">매점</SLink>
             </Item>
+            {user.userData && user.userData.role ==="관리자"
+            ? (
+              <Item current={pathname === "/admin"}>
+                <SLink to={user.userData.role==="관리자" ? "/admin" : "/sign-in"}>관리자</SLink>
+              </Item>
+              )
+            : null
+              }
           </List1>
           {user.userData && !user.userData.isAuth ? (
             <List2>

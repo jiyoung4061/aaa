@@ -27,22 +27,20 @@ export default () => (
       <Header />
       <Switch>
         <Route path="/" exact component={Auth(Home, true)} />
-        <Route path="/search" component={Auth(Search, null)} />
+        <Route path="/search" component={Auth(Search, true)} />
         <Route path="/movie/:id" component={Auth(Detail, true)} exact />
-        <Route path="/sign-in" component={Auth(Login, false)} />
-        <Route path="/sign-up" component={Auth(SignUp, false)} />
+        <Route path="/sign-in" component={Auth(Login, true)} />
+        <Route path="/sign-up" component={Auth(SignUp, true)} />
         <Route path="/logout" component={Auth(Logout, true)} />
         <Route path="/favorite" component={Auth(Favorite, true)} />
-        <Route path="/admin" component={Auth(Admin, null)} />
-
-        <Route path="/product" component={Auth(Product, null)} exact />
+        <Route path="/admin" component={Auth(Admin, true, true)} exact/>
+        <Route path="/product" component={Auth(Product, true)} exact />
         <Route
           path="/product/:productId"
-          component={Auth(DetailProductPage, null)}
+          component={Auth(DetailProductPage, true)}
           exact
         />
         <Route path="/myscore" component={Auth(MyScore, true)} />
-
         <Route
           path="/mypage/update"
           exact

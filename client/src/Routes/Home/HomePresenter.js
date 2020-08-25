@@ -55,7 +55,7 @@ const HomePresenter = ({
       <Loader />
     ) : (
       <>
-        <Container onWheel={e => {}}>
+        <Container>
           <Carousel autoplay>
             <div>
               <div style={{ position: "absolute" }}>
