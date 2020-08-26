@@ -29,8 +29,8 @@ export default () => (
         <Route path="/" exact component={Auth(Home, true)} />
         <Route path="/search" component={Auth(Search, true)} />
         <Route path="/movie/:id" component={Auth(Detail, true)} exact />
-        <Route path="/sign-in" component={Auth(Login, true)} />
-        <Route path="/sign-up" component={Auth(SignUp, true)} />
+        <Route path="/sign-in" component={Auth(Login, false)} />
+        <Route path="/sign-up" component={Auth(SignUp, false)} />
         <Route path="/logout" component={Auth(Logout, true)} />
         <Route path="/favorite" component={Auth(Favorite, true)} />
         <Route path="/admin" component={Auth(Admin, true, true)} exact/>

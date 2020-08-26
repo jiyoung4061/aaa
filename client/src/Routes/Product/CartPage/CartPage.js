@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core";
+import {Button} from "antd";
+
 import {
   Table,
   TableBody,
@@ -14,6 +16,7 @@ import PortletContent from "../../MyMovie/Sections/PortletContent";
 import styles from "../../MyMovie/Sections/styles";
 import { LOCAL_SERVER } from "../../../Components/Config";
 import { Helmet } from "react-helmet";
+
 
 class CartPage extends Component {
   state = {
@@ -108,9 +111,13 @@ class CartPage extends Component {
                       className={classes.tableCell}
                       style={{ color: "#2d2d2d" }}
                     >
-                      <button onClick={() => removeItem(product._id)}>
+                      <Button 
+                      type="primary"
+
+                      style={{ backgroundColor:"#7b68ee", border:"#7b68ee" }}
+                      onClick={() => removeItem(product._id)}>
                         삭제
-                      </button>
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}

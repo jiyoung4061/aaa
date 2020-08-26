@@ -71,7 +71,7 @@ function SignUp(props) {
       name: Name,
       image: FilePath,
       gender: Gender,
-    };
+    }; 
 
     // redux action => loginUser는 action이름
     dispatch(registerUser(body)).then(response => {
