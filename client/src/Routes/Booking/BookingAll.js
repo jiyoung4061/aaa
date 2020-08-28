@@ -27,6 +27,7 @@ import { IMAGE_BASE_URL, CLIENT } from "../../Components/Config";
 const PriceTag = styled.div`
   font-size: 20px;
   font-weight: 30px;
+  text-align: right;
 `;
 
 const Small = styled.div`
@@ -349,12 +350,26 @@ function BookingAll({
           </table>
           <hr style={{ color: "white", borderColor: "white", width: "100%" }} />
           <PriceTag>{Price}원</PriceTag>
-          <img
-            src={require("../../img/kakaoPay.png")}
-            alt="kakaoPay"
-            style={{ width: "20%", height: "25px", float: "right" }}
+          <button
+            style={{ 
+              width: "100%", 
+              height: "30px", 
+              backgroundColor: "#FAE900",
+              border: "transparent", 
+              marginTop: "10px",
+              fontSize:"15px",
+              color: "black", 
+              fontWeight: "bolder",
+            }}
             onClick={onKaKaoPay}
-          />
+          >
+            <img
+              src={require("../../img/kakaoPay4.png")}
+              alt="kakaoPay"
+              style={{ width: "21px", height: "17px", verticalAlign:"middle", marginRight:"10px" }}
+            />
+            KakaoPay 결제
+            </button>
         </InnerWrapper>
       </Wrapper>
       {theater % 2 === 1 ? (
