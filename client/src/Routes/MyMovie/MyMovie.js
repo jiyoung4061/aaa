@@ -39,7 +39,6 @@ function MyMovie(props) {
         props.user.userData.movie.forEach(item => {
           movieObjIds.push(item._id);
         });
-
         dispatch(getMovieItems(movieObjIds, props.user.userData.movie));
       }
     }
@@ -50,7 +49,6 @@ function MyMovie(props) {
         props.user.userData.cart.forEach(item => {
           cartItems.push(item.id);
         });
-
         dispatch(getCartItems(cartItems, props.user.userData.cart)).then(
           response => {
             calculateTotal(response.payload);

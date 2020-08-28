@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "Components/Loader";
-import Rating from "../../Components/Rating";
 import Helmet from "react-helmet";
 import { withRouter } from "react-router-dom";
 import Cast from "./Cast/Cast";
@@ -28,7 +27,7 @@ const Backdrop = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url(${(props) => props.bgImage});
+  background-image: url(${props => props.bgImage});
   background-position: center center;
   background-size: cover;
   filter: blur(0px);
@@ -46,7 +45,7 @@ const Content = styled.div`
 
 const Cover = styled.div`
   width: 30%;
-  background-image: url(${(props) => props.bgImage});
+  background-image: url(${props => props.bgImage});
   background-position: center center;
   background-size: cover;
   height: 100%;
@@ -91,21 +90,6 @@ const Overview = styled.p`
   width: 50%;
   color: white;
 `;
-const RatingsWrapper = styled.div`
-  display: flex;
-  color: white;
-  align-items: center;
-  margin-right: auto;
-  margin-top: 10px;
-  color: white;
-`;
-
-const RatingNumber = styled.p`
-  font-size: 1.3rem;
-  line-height: 1;
-  font-weight: 700;
-  color: var(--color-primary);
-`;
 
 const Heading = styled.h3`
   color: var(--color-primary-dark);
@@ -115,7 +99,7 @@ const Heading = styled.h3`
   font-size: 1.4rem;
   margin-top: 10px;
   color: white;
-  @media ${(props) => props.theme.mediaQueries.medium} {
+  @media ${props => props.theme.mediaQueries.medium} {
     font-size: 1.2rem;
   }
 `;
@@ -124,7 +108,7 @@ const ButtonsWrapper = styled.div`
   margin-top: -73px;
   display: flex;
   align-items: center;
-  @media ${(props) => props.theme.mediaQueries.small} {
+  @media ${props => props.theme.mediaQueries.small} {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -153,18 +137,11 @@ const DetailPresenter = ({
           {result.title ? result.title : result.original_name} | Nomflix
         </title>
       </Helmet>
-      <Backdrop
-        bgImage={`${IMAGE_BASE_URL}original${result.backdrop_path}`}
-      />
+      <Backdrop bgImage={`${IMAGE_BASE_URL}original${result.backdrop_path}`} />
       <Content>
-        <Cover
-          bgImage={`${IMAGE_BASE_URL}original${result.poster_path}`}
-        />
+        <Cover bgImage={`${IMAGE_BASE_URL}original${result.poster_path}`} />
         <Data>
-          <Title>
-            {isMovie ? result.title : result.name}
-
-          </Title>
+          <Title>{isMovie ? result.title : result.name}</Title>
 
           <ItemContainer>
             <Item>
@@ -196,11 +173,6 @@ const DetailPresenter = ({
               movieId={parseInt(result.id)}
               userFrom={localStorage.getItem("userId")}
             />
-
-            <RatingsWrapper>
-              <Rating number={result.vote_average / 2} />
-              <RatingNumber>{result.vote_average}</RatingNumber>
-            </RatingsWrapper>
           </ItemContainer>
 
           <Overview>{result.overview}</Overview>

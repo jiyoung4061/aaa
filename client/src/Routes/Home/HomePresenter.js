@@ -8,6 +8,7 @@ import Poster from "../../Components/Poster";
 import Helmet from "react-helmet";
 import { withRouter } from "react-router-dom";
 import { Carousel } from "antd";
+
 const Container = styled.div`
   scroll-behavior: smooth;
   margin-top: -50px;

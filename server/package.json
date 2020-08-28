@@ -55,7 +55,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node index.js",
     "backend": "nodemon server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",

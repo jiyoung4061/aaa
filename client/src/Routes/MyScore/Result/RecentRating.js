@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Rating from "../../../Components/Rating";
+import {Rate} from "antd"
 import { IMAGE_BASE_URL } from "../../../Components/Config";
+
 const Chart = styled.div`
   float: bottom;
   width: 90%;
@@ -99,7 +100,7 @@ const RecentRating = ({ recent, user }) => {
               <PosterContainer key={index}>
                 <PosterWrapper>
                   <PosterImage
-                    bgUrl={`${IMAGE_BASE_URL}w500${item.imageUrl}`}
+                    bgUrl={`${IMAGE_BASE_URL}original${item.imageUrl}`}
                   />
                   <PosterTitle>
                     {item.title.length > 11
@@ -107,7 +108,8 @@ const RecentRating = ({ recent, user }) => {
                       : item.title}
                   </PosterTitle>
                   <RatingWapper>
-                    <Rating number={item.score} myColor="#2e2e2e" />
+                    {/* <MyScoreRating number={item.score}/> */}
+                    <Rate value={item.score} disabled style={{color:"#2e2e2e"}}/>
                   </RatingWapper>
                 </PosterWrapper>
               </PosterContainer>
